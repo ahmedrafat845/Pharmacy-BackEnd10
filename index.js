@@ -11,6 +11,7 @@ import cors from 'cors';
 import paymentRouter from './src/modules/payment/payment.router.js';
 import { PaymobWebhookRouter } from './src/modules/paymobWebhook/paymobWebhook.router.js'
 import altRouter from './src/modules/alt/alt.router.js';
+import testRouter from './src/modules/test/test.router.js';
 
 dotenv.config();
 const app = express()
@@ -33,7 +34,8 @@ app.use('/wishlist',wishlistRouter)
 app.use('/payment', paymentRouter);
 app.use('/orders',orderRouter)
 app.use('/pay',PaymobWebhookRouter)
-app.use('/alternatives', altRouter);  
+app.use('/alternatives', altRouter); 
+app.use('/tests',testRouter) 
 
 app.get('/', (req, res) => {
     res.send('Welcome to the API');
